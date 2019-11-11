@@ -81,5 +81,37 @@ if ( function_exists('register_sidebar') )
     'after_widget' => '</div>',
     'before_title' => '<h3>',
     'after_title' => '</h3>',
-  )
-);
+));
+
+if ( function_exists('register_sidebar') )
+register_sidebar(array(
+	'name' => 'footer1',
+	'before_widget' => '<div class = "widgetfooter1">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3>',
+	'after_title' => '</h3>',
+));
+if ( function_exists('register_sidebar') )
+register_sidebar(array(
+	'name' => 'footer2',
+	'before_widget' => '<div class = "widgetfooter2">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3>',
+	'after_title' => '</h3>',
+));
+if ( function_exists('register_sidebar') )
+register_sidebar(array(
+	'name' => 'footer3',
+	'before_widget' => '<div class = "widgetfooter3">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3>',
+	'after_title' => '</h3>',
+));
+if ( function_exists('register_sidebar') )
+register_sidebar(array(
+	'name' => 'siteheadalert',
+	'before_widget' => '<div class = "siteheadalert">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3>',
+	'after_title' => '</h3>',
+));
