@@ -4,18 +4,21 @@
  *
  * @package mindbender
  */
+
+
+ //scripts for bootstrap below
 function mindbender_scripts() {
-	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
+	wp_enqueue_style( 'bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
 	wp_enqueue_style( 'blog', get_template_directory_uri() . '/blog.css' );
-		wp_enqueue_script( 'bootstrap', 'https://code.jquery.com/jquery-3.2.1.slim.min.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), true );
-		wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' );
+		wp_enqueue_script( 'bootstrap-jquery', 'https://code.jquery.com/jquery-3.2.1.slim.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' , array( 'jquery' ), true );
+		wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' , array( 'jquery' ), true );
 }
 
 add_action( 'wp_enqueue_scripts', 'mindbender_scripts' );
 
 
-
+//Fonts Located here
 function mindbender_google_fonts() {
 	wp_register_style('OpenSans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 	wp_enqueue_style( 'OpenSans');
@@ -73,7 +76,7 @@ function custom_settings_page_setup() {
 add_action( 'admin_init', 'custom_settings_page_setup' );
 
 
-
+//Widgetized area initialized here
 if ( function_exists('register_sidebar') )
   register_sidebar(array(
     'name' => 'Name of Widgetized Area',
@@ -115,3 +118,13 @@ register_sidebar(array(
 	'before_title' => '<h3>',
 	'after_title' => '</h3>',
 ));
+
+
+add_theme_support( 'custom-logo' );
+$args = array(
+	'width'         => 980,
+	'height'        => 60,
+	'default-image' => get_template_directory_uri() . '/images/header.jpg',
+	'uploads'       => true,
+);
+add_theme_support( 'custom-header', $args );
